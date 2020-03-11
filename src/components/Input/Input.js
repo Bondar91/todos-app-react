@@ -6,6 +6,7 @@ const Input = styled.input`
   font-weight: ${({ theme }) => theme.normal};
   background-color: ${({ theme }) => theme.white};
   border: 2px solid ${({ theme }) => theme.grey};
+  width: 80%;
 
   ::placeholder {
     text-transform: uppercase;
