@@ -4,13 +4,15 @@ import GlobalStyle from 'theme/GlobalStyle';
 import { theme } from 'theme/mainTheme';
 import List from 'components/List/List';
 import Form from 'components/Form/Form';
+import Title from 'components/Title/Title';
 
 const Root = () => (
   <div>
     <GlobalStyle />
     <ThemeProvider theme={theme}>
-      <List />
+      <Title>Todos</Title>
       <Form />
+      <List />
     </ThemeProvider>
   </div>
 );
