@@ -1,16 +1,14 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
-import Button from 'components/Button/Button';
 import GlobalStyle from 'theme/GlobalStyle';
 import { theme } from 'theme/mainTheme';
-import Input from 'components/Input/Input';
+import List from 'components/List/List';
 
 const Root = () => (
   <div>
     <GlobalStyle />
     <ThemeProvider theme={theme}>
-      <Button>Add</Button>
-      <Input placeholder="Add todo" />
+      <List />
     </ThemeProvider>
   </div>
 );
