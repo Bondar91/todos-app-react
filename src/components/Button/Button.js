@@ -16,6 +16,9 @@ const Button = styled.button`
     css`
       background-color: ${({ theme }) => theme.danger};
       color: ${({ theme }) => theme.white};
+      width: 60px;
+      height: 28px;
+      font-size: ${({ theme }) => theme.fontSize.xs};
     `}
 `;
 
