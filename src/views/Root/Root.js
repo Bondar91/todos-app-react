@@ -2,17 +2,13 @@ import React from 'react';
 import { ThemeProvider } from 'styled-components';
 import GlobalStyle from 'theme/GlobalStyle';
 import { theme } from 'theme/mainTheme';
-import List from 'components/List/List';
-import Form from 'components/Form/Form';
-import Title from 'components/Title/Title';
+import TodosView from 'views/TodosView/TodosView';
 
 const Root = () => (
   <div>
     <GlobalStyle />
     <ThemeProvider theme={theme}>
-      <Title>Todos</Title>
-      <Form />
-      <List />
+      <TodosView />
     </ThemeProvider>
   </div>
 );
