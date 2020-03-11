@@ -21,7 +21,7 @@ const ListItem = () => (
   <ListItemWrapper>
     <InnerWrapper>
       <ParagraphText>Task1</ParagraphText>
-      <Button>Remove</Button>
+      <Button remove>Remove</Button>
     </InnerWrapper>
   </ListItemWrapper>
 );
