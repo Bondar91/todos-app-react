@@ -1,11 +1,15 @@
 import React from 'react';
+import { ThemeProvider } from 'styled-components';
 import Button from 'components/Button/Button';
 import GlobalStyle from 'theme/GlobalStyle';
+import { theme } from 'theme/mainTheme';
 
 const Root = () => (
   <div>
     <GlobalStyle />
-    <Button>Test button</Button>;
+    <ThemeProvider theme={theme}>
+      <Button>Test button</Button>;
+    </ThemeProvider>
   </div>
 );
 
