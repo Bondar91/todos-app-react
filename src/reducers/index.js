@@ -1,7 +1,6 @@
-const initialState = {};
+import { combineReducers } from 'redux';
+import todos from 'reducers/todos';
 
-const rootReducer = (state = initialState, action) => {
-  console.log(action);
-};
-
-export default rootReducer;
+export default combineReducers({
+  todos,
+});
