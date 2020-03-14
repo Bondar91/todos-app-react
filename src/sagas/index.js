@@ -5,7 +5,10 @@ import axios from 'axios';
 
 export function* getTodos() {
   try {
-    const response = yield call(axios.get, 'https://jsonplaceholder.typicode.com/todoss');
+    const response = yield call(
+      axios.get,
+      'https://jsonplaceholder.typicode.com/todos?_page=1&_limit=10',
+    );
     const todos = yield response.data;
     yield put(actions.todosFetchedSuccess(todos));
   } catch (e) {
