@@ -1,5 +1,9 @@
 import types from 'actions/types';
 
+export const todosFetchedRequested = () => ({
+  type: types.FETCH_TODOS_REQUEST,
+});
+
 export const todosFetchedSuccess = todos => ({
   type: types.FETCH_TODOS_SUCCESS,
   todos,
