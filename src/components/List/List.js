@@ -6,11 +6,11 @@ const ListWrapper = styled.ul`
   list-style: none;
 `;
 
-const List = () => (
+const List = ({ todos }) => (
   <ListWrapper>
-    <ListItem />
-    <ListItem />
-    <ListItem />
+    {todos.map(({ userId, id, title, completed }) => (
+      <ListItem userId={userId} id={id} title={title} completed={completed} />
+    ))}
   </ListWrapper>
 );
 export default List;

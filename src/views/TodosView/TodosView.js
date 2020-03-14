@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import styled from 'styled-components';
 import Title from 'components/Title/Title';
 import Form from 'components/Form/Form';
@@ -17,12 +18,14 @@ const HeadingTitle = styled(Title)`
   padding: 10px;
 `;
 
-const TodosView = () => (
+const TodosView = ({ todos }) => (
   <StyledWrapper>
     <HeadingTitle>Todos</HeadingTitle>
     <Form />
-    <List />
+    <List todos={todos} />
   </StyledWrapper>
 );
 
-export default TodosView;
+const mapStateToProps = ({ todos }) => ({ todos });
+
+export default connect(mapStateToProps)(TodosView);
