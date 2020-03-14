@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 import Title from 'components/Title/Title';
@@ -27,5 +28,13 @@ const TodosView = ({ todos }) => (
 );
 
 const mapStateToProps = ({ todos }) => ({ todos });
+
+TodosView.propTypes = {
+  todos: PropTypes.arrayOf(PropTypes.object),
+};
+
+TodosView.defaultProps = {
+  todos: [],
+};
 
 export default connect(mapStateToProps)(TodosView);
