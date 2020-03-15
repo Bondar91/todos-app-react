@@ -28,3 +28,18 @@ export const todosAddFailed = error => ({
   type: types.ADD_TODOS_FAILED,
   error,
 });
+
+export const todosRemoveRequested = todo => ({
+  type: types.REMOVE_TODOS_REQUEST,
+  todo,
+});
+
+export const todosRemoveSuccess = todo => ({
+  type: types.REMOVE_TODOS_SUCCESS,
+  todo,
+});
+
+export const todosRemoveFailed = error => ({
+  type: types.REMOVE_TODOS_FAILED,
+  error,
+});
