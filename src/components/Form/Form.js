@@ -21,11 +21,15 @@ const Form = ({ addTodo }) => {
       onSubmit={e => {
         e.preventDefault();
 
-        addTodo({
-          userId: 1,
-          title: todoInput.current.value,
-          completed: false,
-        });
+        if (todoInput.current.value !== '') {
+          addTodo({
+            userId: 1,
+            title: todoInput.current.value,
+            completed: false,
+          });
+        } else {
+          alert('The field cannot be empty!!!');
+        }
       }}
     >
       <Input placeholder="Todos" ref={todoInput} />
