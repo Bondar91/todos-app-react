@@ -1,3 +1,5 @@
+Todos Project for displaying, deleting and adding tasks. Technologies used: React, Redux, Styled Components, Redux-Saga, Axios.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
