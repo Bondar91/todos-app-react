@@ -25,6 +25,23 @@ const rootReducer = (state = initialState, action) => {
         error: true,
         isLoading: false,
       };
+    case types.ADD_TODOS_REQUEST:
+      return {
+        ...state,
+        isLoading: true,
+      };
+    case types.ADD_TODOS_SUCCESS:
+      return {
+        ...state,
+        todos: [...state.todos, action.todo],
+        isLoading: false,
+      };
+    case types.ADD_TODOS_FAILED:
+      return {
+        ...state,
+        error: true,
+        isLoading: false,
+      };
     default:
       return state;
   }
