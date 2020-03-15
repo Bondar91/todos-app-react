@@ -38,6 +38,19 @@ export function* requestAddTodo() {
   yield takeEvery(types.ADD_TODOS_REQUEST, addTodos);
 }
 
+export function* removeTodos({ todo }) {
+  try {
+    const response = yield call(axios.delete, `https://jsonplaceholder.typicode.com/todos/${todo}`);
+    yield put(actions.todosRemoveSuccess(response));
+  } catch (e) {
+    yield put(actions.todosRemoveFailed(e));
+  }
+}
+
+export function* requestRemoveTodo() {
+  yield takeEvery(types.REMOVE_TODOS_REQUEST, removeTodos);
+}
+
 export default function* rootSaga() {
-  yield all([requestFetchTodos(), requestAddTodo()]);
+  yield all([requestFetchTodos(), requestAddTodo(), requestRemoveTodo()]);
 }

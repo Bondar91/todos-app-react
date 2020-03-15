@@ -42,6 +42,23 @@ const rootReducer = (state = initialState, action) => {
         error: true,
         isLoading: false,
       };
+    case types.REMOVE_TODOS_REQUEST:
+      return {
+        ...state,
+        isLoading: true,
+      };
+    case types.REMOVE_TODOS_SUCCESS:
+      return {
+        ...state,
+        todos: [...state.todos].filter(item => item !== action.todo),
+        isLoading: false,
+      };
+    case types.REMOVE_TODOS_FAILED:
+      return {
+        ...state,
+        error: true,
+        isLoading: false,
+      };
     default:
       return state;
   }
