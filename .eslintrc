@@ -5,7 +5,8 @@
   },
   "globals": {
     "document": true,
-    "window": true
+    "window": true,
+    "alert": true
   },
   "rules": {
     "import/prefer-default-export": 0,
