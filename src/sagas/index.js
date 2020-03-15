@@ -20,6 +20,24 @@ export function* requestFetchTodos() {
   yield takeEvery(types.FETCH_TODOS_REQUEST, getTodos);
 }
 
+export function* addTodos({ todo }) {
+  try {
+    const response = yield call(axios.post, 'https://jsonplaceholder.typicode.com/todos', {
+      userId: todo.userId,
+      title: todo.title,
+      completed: todo.completed,
+    });
+    const todos = yield response.data;
+    yield put(actions.todosAddSuccess(todos));
+  } catch (e) {
+    yield put(actions.todosAddFailed(e));
+  }
+}
+
+export function* requestAddTodo() {
+  yield takeEvery(types.ADD_TODOS_REQUEST, addTodos);
+}
+
 export default function* rootSaga() {
-  yield all([requestFetchTodos()]);
+  yield all([requestFetchTodos(), requestAddTodo()]);
 }
