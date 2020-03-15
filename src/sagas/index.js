@@ -40,8 +40,16 @@ export function* requestAddTodo() {
 
 export function* removeTodos({ todo }) {
   try {
-    const response = yield call(axios.delete, `https://jsonplaceholder.typicode.com/todos/${todo}`);
-    yield put(actions.todosRemoveSuccess(response));
+    if (todo.completed !== true) {
+      const response = yield call(
+        axios.delete,
+        `https://jsonplaceholder.typicode.com/todos/${todo.id}`,
+      );
+      yield put(actions.todosRemoveSuccess(response));
+    } else {
+      console.log('Task cannot be deleted!!! Task is completed!!');
+      yield put(actions.todosRemoveFailed());
+    }
   } catch (e) {
     yield put(actions.todosRemoveFailed(e));
   }

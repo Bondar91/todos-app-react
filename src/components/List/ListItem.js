@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import Button from 'components/Button/Button';
 import { todosRemoveRequested } from 'actions';
 
@@ -23,25 +23,33 @@ const InnerWrapper = styled.div`
 
 const ParagraphText = styled.p`
   font-size: ${({ theme }) => theme.fontSize.m};
+
+  ${({ done }) =>
+    done &&
+    css`
+      text-decoration: line-through;
+      color: ${({ theme }) => theme.green};
+    `}
 `;
 
 const ListItem = ({ id, title, completed, removeTodo }) => (
   <ListItemWrapper>
     <InnerWrapper>
-      <ParagraphText>
-        {id}
-        {title}
-        {completed}
-      </ParagraphText>
-      <Button
-        onClick={() => {
-          console.log(id);
-          removeTodo(id);
-        }}
-        remove
-      >
-        Remove
-      </Button>
+      <ParagraphText done={completed}>{title}</ParagraphText>
+      {completed !== true && (
+        <Button
+          onClick={() => {
+            if (completed !== true) {
+              removeTodo({ id, completed });
+            } else {
+              console.log('Task cannot be deleted!!! Task is completed!');
+            }
+          }}
+          remove
+        >
+          Remove
+        </Button>
+      )}
     </InnerWrapper>
   </ListItemWrapper>
 );

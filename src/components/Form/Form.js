@@ -10,6 +10,7 @@ const FormWrapper = styled.form`
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-bottom: 20px;
 `;
 
 const Form = ({ addTodo }) => {
