@@ -50,7 +50,7 @@ const rootReducer = (state = initialState, action) => {
     case types.REMOVE_TODOS_SUCCESS:
       return {
         ...state,
-        todos: [...state.todos].filter(item => item !== action.todo),
+        todos: [...state.todos].filter(item => item.id !== action.todo),
         isLoading: false,
       };
     case types.REMOVE_TODOS_FAILED:
